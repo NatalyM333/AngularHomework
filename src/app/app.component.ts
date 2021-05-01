@@ -1,10 +1,14 @@
-import { Component, OnInit, OnDestroy, OnChanges } from "@angular/core";
-import { truncate } from "node:fs";
-import { DataServise } from "./data.service";
-import {LogService} from './log.service';
+import { Component } from "@angular/core";
 @Component({
     selector: 'my-app',
-    template: `<data-component></data-component>`
+    template: `
+    <nav>
+    <a class="button" routerLink="home">Home |</a>
+    <a class="button" routerLink="admin"> Admin</a>
+  </nav>
+    <data-component></data-component>`
 })
 
-export class AppComponent {}
+export class AppComponent {
+
+}
