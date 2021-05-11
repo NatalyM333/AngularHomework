@@ -6,20 +6,18 @@ import { BoldDirective } from "./directive/bold.directive";
 import { MyDirective } from "./directive/my.directive";
 import { DataComponent } from "./data.component";
 import { DataServise } from "./data.service";
-import { RouterModule } from '@angular/router';
 import { AdminComponent } from "./admin.component";
 import { HomeComponent } from "./home.component";
-
+import {Routes, RouterModule} from '@angular/router';
+const appRoutes: Routes = [
+    {path: 'home', component: HomeComponent},
+    {path: 'admin', component: AdminComponent},
+    {path: '**', redirectTo:'/'}
+]
 
 @NgModule({
-    imports: [BrowserModule, FormsModule,
-        // RouterModule.forRoot([
-        //     {path: 'admin', component: AdminComponent},
-        //     {path: 'home', component: HomeComponent},
-        //     {path: '', redirectTo: 'home', pathMatch: 'full'},
-        //   ])
-    ],
-    declarations: [AppComponent, BoldDirective,MyDirective, DataComponent],
+    imports: [BrowserModule, FormsModule,RouterModule.forRoot(appRoutes) ],
+    declarations: [AppComponent, BoldDirective,MyDirective, DataComponent,  HomeComponent, AdminComponent],
     bootstrap: [AppComponent],
     providers:[DataServise]
 })
